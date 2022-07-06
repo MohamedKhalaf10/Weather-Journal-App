@@ -28,3 +28,17 @@ const server = app.listen(port, () => {
   // Callback to debug
   console.log(`running on localhost: ${port}`);
 });
+
+// GET Route to send project end point
+app.get("/getData", (req, res) => {
+  res.send(projectData);
+});
+
+// POST Route to store data in the project end point
+app.post("/postData", (req, res) => {
+  projectData = {
+    date: req.body.date,
+    temp: req.body.temp,
+    feelings: req.body.feelings,
+  };
+});
